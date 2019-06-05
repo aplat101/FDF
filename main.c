@@ -31,19 +31,21 @@ static void	loop(t_fdf *fdf)
 
 int			main(int ac, char **av)
 {
-	t_fdf	fdf;
+	t_fdf	*fdf;
 
-	ft_checkerror(ac, av, &fdf);
-	if (!(fdf.nbword = malloc(sizeof(int) * fdf.nbline)))
+	if (!(fdf = malloc(sizeof(t_fdf) + 1)))
 		return (0);
-	ft_init_mlx(&fdf);
-	ft_init_value(&fdf);
-	ft_init_window(&fdf);
-	fdf.file = ft_alloc_data(av[ac - 1], &fdf);
-	fdf.iso = ft_alloc_iso(fdf.file, &fdf);
-	fdf.para = ft_alloc_para(fdf.file, &fdf);
-	ft_center(&fdf);
-	ft_print(&fdf);
-	loop(&fdf);
+	ft_checkerror(ac, av, fdf);
+	if (!(fdf->nbword = malloc(sizeof(int) * fdf->nbline)))
+		return (0);
+	ft_init_mlx(fdf);
+	ft_init_value(fdf);
+	ft_init_window(fdf);
+	fdf->file = ft_alloc_data(av[ac - 1], fdf);
+	fdf->iso = ft_alloc_iso(fdf->file, fdf);
+	fdf->para = ft_alloc_para(fdf->file, fdf);
+	ft_center(fdf);
+	ft_print(fdf);
+	loop(fdf);
 	return (0);
 }

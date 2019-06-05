@@ -19,6 +19,7 @@ int	key_press(int keycode, t_fdf *fdf)
 	{
 		(void)fdf;
 		exit(0);
+		return (0);
 	}
 	if (keycode == K_LEFT)
 		ft_move_left(fdf);

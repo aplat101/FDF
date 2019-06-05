@@ -74,6 +74,7 @@ void		ft_check_data_color(t_point *file, int *j, char *line)
 		if (!(hexa = ft_strnewzero(6)))
 			return ;
 		file->color_f = ft_converthexint(ft_strncpy(hexa, &(line[*j]), i), 5);
+		free(hexa);
 		*j += i;
 	}
 	else
@@ -112,13 +113,13 @@ t_point		**ft_alloc_data(char *av, t_fdf *fdf)
 
 	i = 0;
 	fd = open(av, O_RDONLY);
-	if (!(fdf->file = (t_point**)malloc(sizeof(t_point*) * (fdf->nbline + 1))))
+	if (!(fdf->file = (t_point**)malloc(sizeof(t_point*) * (fdf->nbline))))
 		return (NULL);
 	while ((res = get_next_line(fd, &line)) == 1 && fd > 0)
 	{
 		fdf->nbword[i] = ft_countwords(line, ' ');
 		if (!(fdf->file[i] =
-			(t_point*)malloc(sizeof(t_point) * (fdf->nbword[i] + 1))))
+			(t_point*)malloc(sizeof(t_point) * (fdf->nbword[i]))))
 			return (NULL);
 		fdf->file[i] = ft_stock_data(fdf->file[i], i, fdf->nbword[i], line);
 		free(line);

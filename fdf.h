@@ -134,6 +134,10 @@ t_point			*ft_stock_para(t_point **para, int i,
 					t_point **file, t_fdf *fdf);
 t_point			**ft_alloc_para(t_point **file, t_fdf *fdf);
 
+/*
+** Fonctions liees au trace du fdf
+*/
+
 int				ft_check(t_point t1, t_point t2, t_fdf *fdf);
 void			ft_take_zoom(t_point **p, t_fdf *fdf);
 void			ft_print(t_fdf *fdf);
@@ -172,24 +176,44 @@ void			ft_adapt_zoom_iso(t_fdf *fdf, int i, int j);
 void			ft_adapt_zoom_para(t_fdf *fdf, int i, int j);
 void			ft_adapt_zoom(t_fdf *fdf);
 
+/*
+** Fonctions liees au centrage de l'iso
+*/
+
 void			ft_para(t_fdf *fdf);
 void			ft_iso_wd(t_fdf *fdf);
 void			ft_iso_hh(t_fdf *fdf);
 void			ft_center_middle_point(t_fdf *fdf, int i, int j);
 void			ft_center_iso(t_fdf *fdf);
 
+/*
+** Fonctions liees au centrage du para
+*/
+
 void			ft_inferior_para(t_fdf *fdf);
 void			ft_superior_para(t_fdf *fdf);
 void			ft_center_para(t_fdf *fdf);
+
+/*
+** Fonctions translations
+*/
 
 void			ft_move_right(t_fdf *fdf);
 void			ft_move_left(t_fdf *fdf);
 void			ft_move_up(t_fdf *fdf);
 void			ft_move_down(t_fdf *fdf);
 
+/*
+** Fonctions modifiant l'elevation
+*/
+
 void			ft_eledown(t_fdf *fdf);
 void			ft_eleup(t_fdf *fdf);
 void			ft_reset_ele(t_fdf *fdf);
+
+/*
+** Fonctions de gestion des couleurs
+*/
 
 void			ft_update_color(t_point **tp, t_fdf *fdf);
 int				ft_get_color_g(t_fdf *fdf, t_point p);

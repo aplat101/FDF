@@ -39,7 +39,7 @@ t_point		**ft_alloc_para(t_point **file, t_fdf *fdf)
 		return (NULL);
 	while (i < fdf->nbline)
 	{
-		if (!(fdf->para[i] = malloc(sizeof(t_point) * (fdf->nbword[i] + 1))))
+		if (!(fdf->para[i] = malloc(sizeof(t_point) * (fdf->nbword[i]))))
 			return (NULL);
 		fdf->para[i] = ft_stock_para(fdf->para, i, file, fdf);
 		i++;

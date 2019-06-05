@@ -43,7 +43,7 @@ t_point		**ft_alloc_iso(t_point **file, t_fdf *fdf)
 		return (NULL);
 	while (i < fdf->nbline)
 	{
-		if (!((fdf->iso[i]) = malloc(sizeof(t_point) * (fdf->nbword[i] + 1))))
+		if (!((fdf->iso[i]) = malloc(sizeof(t_point) * (fdf->nbword[i]))))
 			return (NULL);
 		fdf->iso[i] = ft_stock_iso(fdf->iso, i, file, fdf);
 		i++;
